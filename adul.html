@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Adul VS | Personal Website</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    body {
+      background: #050816;
+      color: #e5e7eb;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(16px);
+      background: rgba(5, 8, 22, 0.85);
+      border-bottom: 1px solid rgba(148, 163, 184, 0.2);
+    }
+
+    .nav {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 12px 16px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      font-size: 14px;
+      text-transform: uppercase;
+      color: #a855f7;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+    }
+
+    .nav-links a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid transparent;
+    }
+
+    .nav-links a:hover {
+      border-color: rgba(148, 163, 184, 0.6);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 32px 16px 64px;
+    }
+
+    section {
+      margin-bottom: 64px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.3fr);
+      gap: 32px;
+      align-items: center;
+    }
+
+    @media (max-width: 768px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      border: 1px solid rgba(148, 163, 184, 0.4);
+      color: #9ca3af;
+      margin-bottom: 10px;
+    }
+
+    .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 16px rgba(34, 197, 94, 0.7);
+    }
+
+    h1 {
+      font-size: clamp(32px, 5vw, 40px);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .gradient-text {
+      background: linear-gradient(120deg, #a855f7, #22d3ee, #f97316);
+      -webkit-background-clip: text;
+      color: transparent;
+    }
+
+    .subtitle {
+      font-size: 14px;
+      color: #9ca3af;
+      max-width: 480px;
+      margin-bottom: 20px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      font-size: 14px;
+      border-radius: 999px;
+      padding: 9px 16px;
+      border: 1px solid rgba(148, 163, 184, 0.6);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      cursor: pointer;
+      background: transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #4f46e5, #a855f7);
+      border: none;
+      color: white;
+    }
+
+    .btn-primary:hover {
+      opacity: 0.9;
+    }
+
+    .btn-ghost:hover {
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .line {
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, #a855f7, transparent);
+      margin: 20px 0;
+    }
+
+    .hero-meta {
+      font-size: 13px;
+      color: #6b7280;
+    }
+
+    .hero-card {
+      border-radius: 24px;
+      padding: 20px;
+      background: radial-gradient(circle at top left, #1f2937, #020617 55%);
+      border: 1px solid rgba(148, 163, 184, 0.3);
+      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
+    }
+
+    .avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 999px;
+      border: 2px solid rgba(148, 163, 184, 0.6);
+      margin-bottom: 14px;
+      background: radial-gradient(circle at 30% 20%, #4f46e5, #020617 65%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 28px;
+      color: #e5e7eb;
+    }
+
+    .hero-card h2 {
+      font-size: 18px;
+      margin-bottom: 4px;
+    }
+
+    .hero-card p {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 14px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .pill {
+      font-size: 11px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(148, 163, 184, 0.5);
+      color: #9ca3af;
+    }
+
+    .section-title {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 6px;
+    }
+
+    .section-subtitle {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 18px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      border-radius: 20px;
+      padding: 16px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+    }
+
+    .card h3 {
+      font-size: 15px;
+      margin-bottom: 4px;
+    }
+
+    .card p {
+      font-size: 13px;
+      color: #9ca3af;
+      margin-bottom: 8px;
+    }
+
+    .card small {
+      font-size: 11px;
+      color: #6b7280;
+    }
+
+    .contact-box {
+      border-radius: 20px;
+      padding: 18px;
+      background: rgba(15, 23, 42, 0.95);
+      border: 1px solid rgba(148, 163, 184, 0.35);
+      font-size: 14px;
+    }
+
+    .contact-row {
+      margin-top: 10px;
+      display: grid;
+      gap: 4px;
+    }
+
+    .contact-label {
+      font-size: 12px;
+      color: #6b7280;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-value {
+      font-size: 14px;
+    }
+
+    footer {
+      font-size: 11px;
+      color: #6b7280;
+      text-align: center;
+      padding: 16px;
+      border-top: 1px solid rgba(31, 41, 55, 1);
+      margin-top: 16px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <header>
+    <nav class="nav">
+      <div class="logo">ADUL VS</div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero -->
+    <section class="hero" id="top">
+      <div>
+        <div class="badge">
+          <span class="dot"></span>
+          <span>Open to new opportunities</span>
+        </div>
+        <h1>Hi, I'm <span class="gradient-text">Adul VS</span></h1>
+        <p class="subtitle">
+          I'm an 18-year-old student from Punalur, Kollam. I'm learning business,
+          interested in trading, tech, Linux and gaming – and building my future step by step.
+        </p>
+        <div class="hero-buttons">
+          <a href="#projects" class="btn-primary">See My Journey →</a>
+          <a href="#contact" class="btn-ghost">Contact Me</a>
+        </div>
+        <div class="line"></div>
+        <p class="hero-meta">
+          💡 This site is fully made using only HTML & CSS. Built locally on my PC and can be hosted online anytime.
+        </p>
+      </div>
+
+      <div class="hero-card">
+        <div class="avatar">
+          A
+        </div>
+        <h2>Adul VS</h2>
+        <p>Student · Learning Business · Exploring Trading & Tech</p>
+        <div class="pill-row">
+          <span class="pill">Punalur, Kollam</span>
+          <span class="pill">18 years old</span>
+          <span class="pill">Business learner</span>
+          <span class="pill">Trading & Linux</span>
+          <span class="pill">Gaming</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- About -->
+    <section id="about">
+      <h2 class="section-title">About Me</h2>
+      <p class="section-subtitle">A small intro about who I am.</p>
+      <p style="font-size:14px; color:#d1d5db; margin-bottom:10px;">
+        Hey! Ente peru <strong>Adul VS</strong>. Njan <strong>Punalur, Kollam</strong>-il ninnulla
+        oru 18 year old student aanu. I am a student learning business and interested in
+        different areas like trading, Linux, HTML and gaming.
+      </p>
+      <p style="font-size:14px; color:#9ca3af;">
+        Future-il oru strong business background, trading knowledge, and tech skills
+        combine cheythu nalla life build cheyyanam ennanu ente aim. Ith pole oru simple
+        personal website vechu, ente journey, skills, and interests ellam share cheyyan
+        aanu plan.
+      </p>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills">
+      <h2 class="section-title">Skills & Interests</h2>
+      <p class="section-subtitle">Things I'm exploring and improving now.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>Business & Learning</h3>
+          <p>
+            I am a student learning business. Basic concepts, mindset, and how money & markets work –
+            ithokke slowly understand cheyyan aanu focus.
+          </p>
+          <small>Goal: Build a strong base in business.</small>
+        </div>
+
+        <div class="card">
+          <h3>Trading</h3>
+          <p>
+            Trading basics, price movement, risk mindset – step by step padichu pogunnu.
+            Safe approach, risk management, patience enniva importance manasilakkunnu.
+          </p>
+          <small>Goal: Become a disciplined trader.</small>
+        </div>
+
+        <div class="card">
+          <h3>Tech: Linux & HTML</h3>
+          <p>
+            Linux (especially Kali & other distros) explore cheyyan ishtam. HTML basics
+            arinjittu simple websites like this build cheyyan kazhiyum.
+          </p>
+          <small>Goal: Improve web + Linux skills.</small>
+        </div>
+
+        <div class="card">
+          <h3>Gaming & Other Interests</h3>
+          <p>
+            Gaming time-kittiyal enjoy cheyyum. Devices tweak cheyyalum, software explore
+            cheyyalum ishtam. Always curious about new tools & tech.
+          </p>
+          <small>Balance between fun and growth.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects / Journey -->
+    <section id="projects">
+      <h2 class="section-title">My Journey</h2>
+      <p class="section-subtitle">Small steps I'm taking right now.</p>
+
+      <div class="card-grid">
+        <div class="card">
+          <h3>This Personal Website</h3>
+          <p>
+            Ee site thanne – created using only HTML & CSS in VS Code. First step to
+            build my online presence and share who I am.
+          </p>
+          <small>Stack: HTML, CSS (no frameworks).</small>
+        </div>
+
+        <div class="card">
+          <h3>Business Learning Path</h3>
+          <p>
+            I am learning basics of business and how to think like a business person.
+            Slowly building knowledge and confidence.
+          </p>
+          <small>Long term journey.</small>
+        </div>
+
+        <div class="card">
+          <h3>Trading & Markets</h3>
+          <p>
+            Exploring trading as a skill – charts, entries, exits, and risk. Focus is
+            to avoid over-trading and learn properly instead of rushing.
+          </p>
+          <small>Process over quick profit.</small>
+        </div>
+
+        <div class="card">
+          <h3>Tech Exploration</h3>
+          <p>
+            Playing with Linux, learning new commands, trying tools and understanding
+            how systems actually work behind the scenes.
+          </p>
+          <small>Always experimenting.</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact">
+      <h2 class="section-title">Contact</h2>
+      <p class="section-subtitle">You can reach me here.</p>
+
+      <div class="contact-box">
+        <p>
+          If you want to connect with me for friendship, ideas, or anything related to
+          business, trading or tech, you can mail me or DM on Instagram.
+        </p>
+
+        <div class="contact-row">
+          <div>
+            <div class="contact-label">Email</div>
+            <div class="contact-value">
+              <a href="mailto:adulvs47@gmail.com">adulvs47@gmail.com</a>
+            </div>
+          </div>
+          <div>
+            <div class="contact-label">Instagram</div>
+            <div class="contact-value">
+              <a href="https://instagram.com/___adul_._v_s_" target="_blank">
+                @___adul_._v_s_
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © <span id="year"></span> Adul VS. Built with HTML & CSS.
+  </footer>
+
+  <script>
+    // Footer year auto update
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
